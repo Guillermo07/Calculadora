@@ -155,8 +155,7 @@ resetear.onclick = function(e) {
 }
 
 punto.onclick = function() {
-    resultado.innerHTML += ".";
-    if (resultado.innerHTML == "0") {
+    if (resultado.innerHTML.indexOf(".") == -1) {
         resultado.innerHTML += ".";
     }
 }
@@ -348,5 +347,11 @@ function resolver() {
             break;
     }
     reset();
-    resultado.innerHTML = res;
+
+    if (resultado.textContent.length <= 8) {
+        resultado.textContent = res;
+    }
+    if (resultado.textContent.length > 8) {
+        resultado.textContent = res.toExponential(2);
+    }
 }
