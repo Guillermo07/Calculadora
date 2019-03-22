@@ -1,3 +1,4 @@
+
 var operandoa;
 var operandob;
 var operacion;
@@ -149,7 +150,7 @@ cero.onclick = function() {
 
 }
 
-resetear.onclick = function(e) {
+resetear.onclick = function() {
     reset();
 
 }
@@ -321,6 +322,12 @@ division.onclick = function(e) {
     limpiar();
 }
 
+raiz.onclick = function(e) {
+    operandoa = resultado.textContent;
+    operacion = "^";
+    resolver();
+}
+
 igual.onclick = function(e) {
     operandob = resultado.textContent;
     resolver();
@@ -344,6 +351,9 @@ function resolver() {
             break;
         case "/":
             res = parseFloat(operandoa) / parseFloat(operandob);
+            break;
+        case "^":
+            res = Math.sqrt(operandoa);
             break;
     }
     reset();
